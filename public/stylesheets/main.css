@@ -37,4 +37,4 @@ body{
 
 .error-message{color:rgb(189, 3, 3)}
 
-.read-canvas{width: 100%;}
+.read-canvas{position: absolute;width: 100%;left: 0%;}
