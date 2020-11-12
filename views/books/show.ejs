@@ -1,0 +1,30 @@
+<h2 class="page-header"><%=book.title%></h2>
+<div class="book-details">
+    <div>
+        <img class="book-cover" src="<%=book.coverImagePath%>">
+        <div class="book-details-btn">
+            <a href="/books/<%=book.id%>/edit" class="btn btn-primary">Edit</a>
+            <%-include('../layouts/partials/delete.ejs',
+            {url:`/books/${book.id}`})%>
+            <a href="/authors/<%=book.author.id%>" class="btn btn-primary book-details-author-btn">View Author</a>
+            <a href="/books/<%=book.id%>/read" class="btn btn-primary book-details-author-btn">Read Book</a>
+        </div>
+    </div>
+
+    <div class="book-details-grid">
+        <div class="book-details-label">Author:</div>
+        <div><%=book.author.name%></div>
+        
+        <div class="book-details-label">Publish Date:</div>
+        <div><%=book.publishDate.toDateString()%></div>
+        
+        <div class="book-details-label">Page Count:</div>
+        <div><%=book.pageCount%></div>
+
+        <div class="book-details-label">Description:</div>
+        <div><%=book.description%></div>
+    </div>
+   
+
+    
+</div>

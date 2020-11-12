@@ -1,0 +1,40 @@
+@import "shared/variables.css";
+@import "shared/header.css";
+@import "shared/buttons.css";
+@import "shared/form.css";
+@import "shared/author.css";
+@import "shared/books.css";
+
+:root{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    color: var(--color-text-light)
+}
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(to right,
+     var(--color-background-dark), var(--color-background-light));
+}
+
+.container{
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 3em;
+}
+
+.inner-container{
+    margin:0 2em;
+}
+
+.page-header{
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.error-message{color:rgb(189, 3, 3)}
+
+.read-canvas{width: 100%;}

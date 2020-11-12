@@ -1,0 +1,8 @@
+<h2 class="page-header">Edit Book <%=book.title%></h2>
+<form action="/books/<%=book.id%>?_method=PUT" method="POST">
+<%- include('_form_field.ejs') %>
+<div class="form-row btn-row from-row-end">
+<a href='/books' class="btn btn-danger">Cancel</a>
+<button type="submit" class="btn btn-primary">Update</button>
+</div>
+</form>

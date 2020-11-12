@@ -1,0 +1,76 @@
+:root{
+    --form-label-font-size: 1.2em;
+    --form-input-background-color: hsl(
+        var(--color-base-hue),100%,20%);
+    --form-input-border-color:hsl(
+        var(--color-base-hue),100%,30%);
+}
+
+
+.form-row{
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.form-item{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2em;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.form-item:first-child{
+    margin-left: 0;
+}
+
+.form-item-no-grow{
+    flex-grow: 0;
+}
+
+.form-item label{
+    font-size: var(--form-label-font-size);
+    margin-bottom: .25em;
+    margin-left: .25em;
+}
+
+.form-item input, .form-item select, .form-item textarea{
+    height:2em;
+    padding:.25em .5em;
+    border-radius: .25em;
+    border: 1px solid var(--form-input-border-color);
+    background-color: 
+    var(--form-input-background-color);
+    color: var(--color-text-light);
+    font-size: 1em;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+}
+
+
+.form-row-end{justify-content: flex-end;}
+
+.form-item textarea{
+    height:100%;
+    resize: none;
+}
+
+
+.filepond--root{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 0;
+    
+}
+
+.filepond--panel-root{
+    background-color: var(--form-input-background-color);
+    border: 1px solid var(--form-input-border-color);
+}
+
+.filepond--drop-label{
+    color:var(--color-text-light);
+    font-size: inherit;
+    margin-top: 4em;
+
+}

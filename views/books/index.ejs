@@ -1,0 +1,30 @@
+<h2 class="page-header">Search Books</h2>
+<form>
+
+<div class="form-row">
+   <div class="form-item">
+      <label>Title</label>
+      <input type="text" name="title" value="<%=searchOption.title%>">
+   </div>
+</div>
+
+<div class="form-row">
+   <div class="form-item">
+      <label>Published Before</label>
+      <input type="date" name="publishedBefore" value="<%=searchOption.publishedBefore%>">
+   </div>
+   <div class="form-item">
+      <label>Published After</label>
+      <input type="date" name="publishedAfter" value="<%=searchOption.publishedAfter%>">
+   </div>
+</div>
+
+<div class="form-row btn-row form-row-end">
+   <button class="btn btn-primary" type="submit">Search</button>
+</div>
+</form>
+<br>
+<div>
+   <%-include('../layouts/partials/book.ejs',
+   {books: books, large:true})%>
+</div>
