@@ -9,6 +9,7 @@
 
 .form-row{
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 1em;
     
  
@@ -80,22 +81,19 @@
 
 }
 
-.description-div-first{
-    display: none;
+.description-div{
+    width: 100%;
+    height: 10em;
+    position: relative;
+    right: 1em;
 }
 
-.description-div-second textarea{
-width: 100%;
-height: 10em;
-}
 
 @media(min-width :1085px){
-    .description-div-first{
+    .description-div{
         display: inherit;
-    }
-
-    .description-div-second{
-        display: none;
+        height: inherit;
+        right: 0;
     }
     :root{
         --form-label-font-size: 1.2em;
