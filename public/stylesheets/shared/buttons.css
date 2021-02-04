@@ -13,7 +13,7 @@
     border:1px solid var(--color-btn-border);
     border-radius: .5em;
     padding: .5em 1em;
-    font-size: 1.2em;
+    font-size: 1em;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
     text-decoration: none;
@@ -56,5 +56,49 @@
     margin-left: 0;
 }
 
+.second-next{
+    text-align: right;
+    position: relative;
+    top:23em;
+    margin-top: 2em;
+    margin-bottom: 5em;
+    
+}
+
+.pageBtn{
+    border: none;
+    outline: none;
+    background-color: inherit;
+    color: white;
+    font-size: 2em;
+    
+}
+
+.top-bar{
+    position: relative;
+    
+}
 
 
+@media(min-width :413px){
+    .second-next{
+        top:25em;
+      
+        
+    }
+}   
+@media(min-width :1085px){
+    .second-next{
+      
+        position: relative;
+        top:83em;
+        
+        
+    }
+
+    .btn{
+        
+        font-size: 1.2em;
+    }
+    
+}    

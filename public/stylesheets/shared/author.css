@@ -1,9 +1,19 @@
 .author-row{
-    display: flex;
+   
     justify-content: space-between;
     margin-bottom: 1em;
 }
 
 .author-name{
     font-size: 2em;
+}
+
+@media(min-width :1085px){
+    .author-row{
+        display: flex;
+        justify-content: space-between;
+        
+    }
+
+
 }

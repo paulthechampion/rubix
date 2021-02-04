@@ -1,11 +1,11 @@
 
 <div class="top-bar">
-    <button class="btn" id="prev-page">
-        <i class="fas fa-arrow-circle-left"></i>Prev Page
+    <button class="pageBtn" id="prev-page">
+        <i class="fas fa-arrow-circle-left"></i>
     </button>
 
-    <button class="btn" id="next-page">
-        <i class="fas fa-arrow-circle-right"></i>Next Page
+    <button class="pageBtn" id="next-page">
+        <i class="fas fa-arrow-circle-right"></i>
     </button>
 
     <span class="page-info">
@@ -13,8 +13,12 @@
     </span>
 </div>
 
-<canvas class="read-canvas" id="pdf-render"></canvas>
-
+<canvas class="read-canvas" id="pdf-render"></canvas><br>
+<div class="second-next">
+<button class="pageBtn" id="next-page">
+    <i class="fas fa-arrow-circle-right"></i>
+</button>
+</div>
 
 <script  src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
 <script>
@@ -99,6 +103,10 @@
     
         renderPage(pageNum)
     })
+
+    if(canvas.innerHTML=null){
+        canvas.innerHTML="PDF Viewer not surported by browser"
+    }
     
     // Button Events
     document.querySelector('#prev-page').addEventListener('click', showPrevPage)

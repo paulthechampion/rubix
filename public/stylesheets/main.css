@@ -26,9 +26,7 @@ body{
     margin-bottom: 3em;
 }
 
-.inner-container{
-    margin:0 2em;
-}
+
 
 .page-header{
     font-size: 2em;
@@ -38,3 +36,4 @@ body{
 .error-message{color:rgb(189, 3, 3)}
 
 .read-canvas{position: absolute;width: 100%;left: 0%;}
+

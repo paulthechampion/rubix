@@ -1,6 +1,13 @@
+
+
 <h2 class="page-header">Recently Added</h2>
 
-<div>
-    <%-include('./layouts/partials/book.ejs',
-    {books: books, large:true})%>
+<div class="index-book-div-flex">
+    <% books.forEach(book =>{%>
+        <div class="index-book-div">
+        <a href="/books/<%=book.id%>">
+        <img class="book-cover book-cover-large" src="<%=book.coverImagePath %>" >
+        </a>  
+        </div> 
+    <%})%>
  </div>
