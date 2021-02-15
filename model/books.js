@@ -51,13 +51,13 @@ const bookSchema = new mongoose.Schema({
 
 bookSchema.virtual('coverImagePath').get(function(){
     if(this.coverImage != null && this.coverImageType != null){
-        return `data:${this.coverImageType}; charset=utf-8; base64,${this.coverImage.toString('base64')}`
+        return `data:${this.coverImageType}; charset=utf-8;base64, ${this.coverImage.toString('base64')}`
     }
 })
 
 bookSchema.virtual('pdfPath').get(function(){
     if(this.pdf != null && this.pdfType != null){
-        return `data:${this.pdfType};charset=utf-8; base64,${this.pdf.toString('base64')}`
+        return `data:${this.pdfType}; charset=utf-8;base64, ${this.pdf.toString('base64')}`
     }
 })
 module.exports= mongoose.model('Books', bookSchema);
