@@ -74,6 +74,10 @@
     grid-area: author;
     justify-self: stretch;
     position: relative;
+    
+}
+
+.down {
     top:3em;
 }
 

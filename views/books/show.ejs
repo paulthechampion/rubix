@@ -7,7 +7,7 @@
             <%-include('../layouts/partials/delete.ejs',
             {url:`/books/${book.id}`})%>
             <a href="/authors/<%=book.author.id%>" class="btn btn-primary book-details-author-btn">View Author</a>
-            <a href="/books/<%=book.id%>/read" class="btn btn-primary book-details-author-btn">Read Book</a>
+            <a href="/books/<%=book.id%>/read" class="btn btn-primary book-details-author-btn down">Read Book</a>
         </div>
     </div>
 
