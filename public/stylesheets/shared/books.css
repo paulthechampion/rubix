@@ -75,15 +75,46 @@
     justify-self: stretch;
 }
 
-@media(min-width :1085px){
+@media(min-width :1000px){
     :root{
         --book-cover-width:200px;
         --book-cover-width-large:300px;
         --book-cover-aspect-ratio:0.75;
     
     }
+
+    .index-book-div {
+        margin-left: 1em;
+      }
     
     .index-book-div-flex{
         margin: 1.5em;
+    }
+}
+
+@media (max-width : 700px) {
+    .book-details{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .book-details > div:first-child{
+        width: 100%;
+        text-align: center;
+        margin: auto;
+        margin-bottom: 2em;
+    }
+
+    .book-details > div:first-child > div:first-child{ 
+        text-align: center;
+    }
+
+    .book-details > div:first-child .btn-primary {
+        margin: auto;
+    }
+
+    .book-details > div:first-child .btn-danger {
+        position: relative;
+        left: 2em;
     }
 }
