@@ -16,7 +16,7 @@
 </button>
 </div>
 
-<script  src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+<script src="https://unpkg.com/pdfjs-dist@4.0.269/build/pdf.mjs"></script>
 <script>
 
     const url= '<%-book.pdfPath%>'
@@ -107,7 +107,16 @@
     // Button Events
     document.querySelector('#prev-page').addEventListener('click', showPrevPage)
     document.querySelector('#next-page').addEventListener('click', showNextPage)
-    </script>
+
+    document.addEventListener('keydown', function(event) {
+
+    if (event.key === 'ArrowRight') {
+        showNextPage();
+    } else if (event.key === 'ArrowLeft') {
+        showPrevPage();
+    }
+    });
+</script>
     
     
     
