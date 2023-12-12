@@ -19,104 +19,97 @@
 <!-- <script src="https://unpkg.com/pdfjs-dist@4.0.269/build/pdf.mjs"></script> -->
 <script type="module">
     import * as pdfjsLib from 'https://unpkg.com/pdfjs-dist@4.0.269/build/pdf.mjs';
-    const url= '<%-book.pdfPath%>'
+
+    const url = '<%-book.pdfPath%>';
     
+    let pdfDoc = null;
+    let pageNum = 1;
+    let pageIsRendering = false;
+    let pageNumIsPending = null;
     
+    const scale = 3;
+    const canvas = document.querySelector('#pdf-render');
+    const ctx = canvas.getContext('2d');
     
-    let pdfDoc = null
-    let pageNum =1
-    let pageIsRendering = false
-    let pageNumIsPending = null
-    
-    const scale = 3
-    const canvas = document.querySelector('#pdf-render')
-    const ctx = canvas.getContext('2d')
-    
-    //render the page
-    const renderPage= num =>{
+    // render the page
+    const renderPage = num => {
         pageIsRendering = true;
     
-        //Get page
-        pdfDoc.getPage(num).then(page=>{
-        
-        // Set scale
-        const viewport = page.getViewport({scale})
-        canvas.height= viewport.height
-        canvas.width = viewport.width
+        // Get page
+        pdfDoc.getPage(num).then(page => {
+            // Set scale
+            const viewport = page.getViewport({ scale });
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
     
-        const renderCtx ={
-            canvasContext: ctx,
-            viewport
-        }
+            const renderCtx = {
+                canvasContext: ctx,
+                viewport
+            };
         
-        page.render(renderCtx).promise.then(()=>{
-            pageIsRendering = false;
+            page.render(renderCtx).promise.then(() => {
+                pageIsRendering = false;
             
-            if(pageNumIsPending !== null){
-                renderPage(pageNumIsPending)
-                pageNumIsPending =null;
-            }
-       
-        })
+                if (pageNumIsPending !== null) {
+                    renderPage(pageNumIsPending);
+                    pageNumIsPending = null;
+                }
+            });
     
-        // Output current page
-        document.querySelector('#page-num').textContent= num;
-        })
-    }
+            // Output current page
+            document.querySelector('#page-num').textContent = num;
+        });
+    };
     
     // Check for pages rendering
-    const queueRenderPage = num =>{
-        if(pageIsRendering){
-            pageNumIsPending =num;
-        }else{
-            renderPage(num)
+    const queueRenderPage = num => {
+        if (pageIsRendering) {
+            pageNumIsPending = num;
+        } else {
+            renderPage(num);
         }
-    }
+    };
     
-    //show Prev Page
-    const showPrevPage= ()=>{
-        if(pageNum <= 1){
-            return
+    // show Prev Page
+    const showPrevPage = () => {
+        if (pageNum <= 1) {
+            return;
         }
-        pageNum--
-        queueRenderPage(pageNum)
-    }
+        pageNum--;
+        queueRenderPage(pageNum);
+    };
     
-    //show Next Page
-    const showNextPage= ()=>{
-        if(pageNum >= pdfDoc.numPages){
-            return
+    // show Next Page
+    const showNextPage = () => {
+        if (pageNum >= pdfDoc.numPages) {
+            return;
         }
-        pageNum++
-        queueRenderPage(pageNum)
-    }
+        pageNum++;
+        queueRenderPage(pageNum);
+    };
     
     // Get Document
-    pdfjsLib.getDocument(url).promise.then(pdfDoc_ =>{
-        pdfDoc= pdfDoc_
+    pdfjsLib.getDocument(url).promise.then(pdfDoc_ => {
+        pdfDoc = pdfDoc_;
         
-        document.querySelector('#page-count').textContent = pdfDoc.numPages
+        document.querySelector('#page-count').textContent = pdfDoc.numPages;
     
-        renderPage(pageNum)
-    })
+        renderPage(pageNum);
+    });
 
-    if(canvas.innerHTML=null){
-        canvas.innerHTML="PDF Viewer not surported by browser"
+    if (!canvas.getContext) {
+        canvas.innerHTML = "PDF Viewer not supported by browser";
     }
     
     // Button Events
-    document.querySelector('#prev-page').addEventListener('click', showPrevPage)
-    document.querySelector('#next-page').addEventListener('click', showNextPage)
+    document.querySelector('#prev-page').addEventListener('click', showPrevPage);
+    document.querySelector('#next-page').addEventListener('click', showNextPage);
 
     document.addEventListener('keydown', function(event) {
-
-    if (event.key === 'ArrowRight') {
-        showNextPage();
-    } else if (event.key === 'ArrowLeft') {
-        showPrevPage();
-    }
+        if (event.key === 'ArrowRight') {
+            showNextPage();
+        } else if (event.key === 'ArrowLeft') {
+            showPrevPage();
+        }
     });
 </script>
-    
-    
-    
