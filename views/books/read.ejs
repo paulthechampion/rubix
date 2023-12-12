@@ -92,7 +92,7 @@
     }
     
     // Get Document
-    pdfjsLib.getDocument(url).promise.then(pdfDoc_ =>{
+    window.pdfjsLib.getDocument(url).promise.then(pdfDoc_ =>{
         pdfDoc= pdfDoc_
         
         document.querySelector('#page-count').textContent = pdfDoc.numPages
