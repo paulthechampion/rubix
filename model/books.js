@@ -42,7 +42,7 @@ const bookSchema = new mongoose.Schema({
     },
     author:{
         type: mongoose.Schema.Types.ObjectId,
-        ref:  'Authorsss',
+        ref:  'authorssses',
         required: true,
         
 
@@ -60,4 +60,4 @@ bookSchema.virtual('pdfPath').get(function(){
         return `data:${this.pdfType}; charset=utf-8;base64, ${this.pdf.toString('base64')}`
     }
 })
-module.exports= mongoose.model('Books', bookSchema);
+module.exports= mongoose.model('books', bookSchema);
